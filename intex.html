@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>MIDGArD: Modular Interpretable Diffusion over Graphs for Articulated Designs</title>
+
+    <!-- Stylesheets -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css">
+    <link href='https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,500,600' rel='stylesheet'>
+    <link rel="stylesheet" href="./assets/css/Highlight-Clean.css">
+    <link rel="stylesheet" href="./assets/css/styles.css">
+    <link rel="apple-touch-icon" sizes="180x180" href="./assets/table-crop.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="./assets/table-crop.png">
+    <link rel="manifest" href="./site.webmanifest">
+
+    <!-- SEO and Social Media Tags -->
+    <meta property="og:site_name" content="MIDGArD" />
+    <meta property="og:type" content="video.other" />
+    <meta property="og:title" content="MIDGArD" />
+    <meta property="og:description" content="MIDGArD, 2024." />
+    <meta property="og:url" content="https://github.com/quentin-leboutet/MIDGArD" />
+    <meta property="og:image" content="https://github.com/quentin-leboutet/MIDGArD/assets/images/midgard_samples.png" />
+    <meta property="article:publisher" content="https://github.com/quentin-leboutet/MIDGArD" />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="MIDGArD" />
+    <meta name="twitter:description" content="3D Asset Generation." />
+    <meta name="twitter:url" content="https://github.com/quentin-leboutet/MIDGArD" />
+    <meta name="twitter:image" content="https://dreamfusion3d.github.io/assets/images/dreamfusion_samples.png" />
+
+    <!-- Scripts -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XB3PR2Y1TQ"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag() { dataLayer.push(arguments); }
+        gtag('js', new Date());
+        gtag('config', 'G-XB3PR2Y1TQ');
+    </script>
+    <script type="module" src="https://unpkg.com/@google/model-viewer@2.0.1/dist/model-viewer.min.js"></script>
+</head>
+
+<body>
+
+    <head>
+        <style>
+            .video-wrapper {
+                width: 200px;
+                /* Desired width */
+                height: 190px;
+                /* Desired height */
+                overflow: hidden;
+                position: relative;
+            }
+
+            .video-wrapper video {
+                position: absolute;
+                top: -10px;
+                /* Adjust top position */
+                left: -20px;
+                /* Adjust left position */
+                min-width: 100%;
+                min-height: 100%;
+            }
+
+            .intel-blue {
+                color: #0071C5;
+                /* Intel blue color */
+                font-weight: bold;
+            }
+        </style>
+    </head>
+
+    <header class="text-center">
+        <div class="container">
+            <h1>
+                <span class="intel-blue">MIDGArD</span>:
+                <span class="intel-blue">M</span>odular
+                <span class="intel-blue">I</span>nterpretable
+                <span class="intel-blue">D</span>iffusion over
+                <span class="intel-blue">G</span>raphs for
+                <span class="intel-blue">Ar</span>ticulated
+                <span class="intel-blue">D</span>esigns
+            </h1>
+            <h4>NeurIPS 2024</h4>
+        </div>
+    </header>
+    <hr class="divider" />
+
+    <section class="authors">
+        <div class="container">
+            <div class="row justify-content-center">
+                <span class="author-block">
+                    <h5> <a href="https://scholar.google.com/citations?user=SfiqI4AAAAAJ&hl=en&oi=ao">Quentin
+                            Leboutet</a>,</h5>
+                </span>
+                <span class="author-block">
+                    <h5> <a href="https://scholar.google.com/citations?user=qC1JKzoAAAAJ&hl=en&oi=ao">Nina
+                            Wiedemann</a>,</h5>
+                </span>
+                <span class="author-block">
+                    <h5> <a href="https://scholar.google.com/citations?user=AZNUIDAAAAAJ&hl=en&oi=ao">Zhipeng Cai</a>,
+                    </h5>
+                </span>
+                <span class="author-block">
+                    <h5> <a href="https://scholar.google.com/citations?user=Xdy_LywAAAAJ&hl=en&oi=ao">Michael
+                            Paulitsch</a>,</h5>
+                </span>
+                <span class="author-block">
+                    <h5> <a href="https://scholar.google.com/citations?user=8eLlbhMAAAAJ&hl=en&oi=ao"> Kai Yuan</a></h5>
+                </span>
+            </div>
+            <div class="row justify-content-center">
+                <span class="author-block">
+                    <h5> Intel Labs</h5>
+                </span>
+            </div>
+        </div>
+        </div>
+    </section>
+
+    <section class="buttons my-3">
+        <div class="text-center">
+            <a class="btn btn-light" role="button" href="https://github.com/quentin-leboutet/MIDGArD">
+                <svg style="width:24px;height:24px" viewBox="0 0 24 24">
+                    <path fill="currentColor"
+                        d="M16 0H8C6.9 0 6 .9 6 2V18C6 19.1 6.9 20 8 20H20C21.1 20 22 19.1 22 18V6L16 0M20 18H8V2H15V7H20V18M4 4V22H20V24H4C2.9 24 2 23.1 2 22V4H4M10 10V12H18V10H10M10 14V16H15V14H10Z">
+                    </path>
+                </svg>
+                Paper
+            </a>
+            <a class="btn btn-light" role="button" href="https://github.com/quentin-leboutet/MIDGArD">
+                <svg style="width:24px;height:24px" viewBox="0 0 24 24">
+                    <path
+                        d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
+                </svg>
+                Code
+            </a>
+            <a class="btn btn-light" role="button" href="index.html">
+                <svg style="width:24px;height:24px" viewBox="0 0 375 531">
+                    <polygon stroke="#000000" points="0.5,0.866 459.5,265.87 0.5,530.874 " />
+                </svg>
+                Video
+            </a>
+        </div>
+    </section>
+    <hr class="divider" />
+    <main class="content">
+        <div class="container">
+            <h5 class="text-center"> <a> MIDGArD generates simulatable articulated assets. </a> </h5>
+            <div class="row">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-3 video-wrapper">
+                            <video width="100%" loop autoplay muted>
+                                <source src="assets/mosaique/0.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                        <div class="col-md-3 video-wrapper">
+                            <video width="100%" loop autoplay muted>
+                                <source src="assets/mosaique/1.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                        <div class="col-md-3 video-wrapper">
+                            <video width="100%" loop autoplay muted>
+                                <source src="assets/mosaique/2.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                        <div class="col-md-3 video-wrapper">
+                            <video width="100%" loop autoplay muted>
+                                <source src="assets/mosaique/3.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                        <!-- Add more video blocks as needed -->
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3 video-wrapper">
+                            <video width="100%" loop autoplay muted>
+                                <source src="assets/mosaique/4.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                        <div class="col-md-3 video-wrapper">
+                            <video width="100%" loop autoplay muted>
+                                <source src="assets/mosaique/5.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                        <div class="col-md-3 video-wrapper">
+                            <video width="100%" loop autoplay muted>
+                                <source src="assets/mosaique/6.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                        <div class="col-md-3 video-wrapper">
+                            <video width="100%" loop autoplay muted>
+                                <source src="assets/mosaique/7.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                        <!-- Add more video blocks as needed -->
+                    </div>
+                    <div class="row">
+                        <div class="col-md-3 video-wrapper">
+                            <video width="100%" loop autoplay muted>
+                                <source src="assets/mosaique/8.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                        <div class="col-md-3 video-wrapper">
+                            <video width="100%" loop autoplay muted>
+                                <source src="assets/mosaique/9.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                        <div class="col-md-3 video-wrapper">
+                            <video width="100%" loop autoplay muted>
+                                <source src="assets/mosaique/10.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                        <div class="col-md-3 video-wrapper">
+                            <video width="100%" loop autoplay muted>
+                                <source src="assets/mosaique/11.mp4" type="video/mp4">
+                                Your browser does not support the video tag.
+                            </video>
+                        </div>
+                        <!-- Add more video blocks as needed -->
+                    </div>
+                </div>
+                <!-- Additional images -->
+            </div>
+            <hr class="divider" />
+            <section class="abstract">
+                <h2>Abstract</h2>
+                <p>
+                    Providing functionality through articulation and interaction with objects is a key objective in 3D
+                    generation. We introduce MIDGArD (Modular Interpretable Diffusion over Graphs for Articulated
+                    Designs), a novel diffusion-based framework for articulated 3D asset generation. MIDGArD improves
+                    over foundational work in the field by enhancing quality, consistency, and controllability in the
+                    generation process. This is achieved through MIDGArD's modular approach that separates the problem
+                    into two primary components: sstructure generation and shape generation. The structure generation
+                    module of MIDGArD aims at producing coherent articulation features from noisy or incomplete inputs.
+                    It acts on the object's structural and kinematic attributes, represented as features of a graph that
+                    are being progressively denoised to issue coherent and interpretable articulation solutions. This
+                    denoised graph then serves as an advanced conditioning mechanism for the shape generation module, a
+                    3D generative model that populates each link of the articulated structure with consistent 3D meshes.
+                    Experiments show the superiority of MIDGArD on the quality, consistency, and interpretability of the
+                    generated assets. Importantly, the generated models are fully simulatable, i.e., can be seamlessly
+                    integrated into standard physics engines such as MuJoCo, broadening MIDGArD's applicability to
+                    fields such as digital content creation, meta realities, and robotics.
+                </p>
+            </section>
+            <hr class="divider" />
+            <section class="overview">
+                <h2>Overview</h2>
+
+                <p>Articulated assets are represented as graphs.</p>
+
+                <div class="row">
+                    <div class="col-md-8 mx-auto d-flex justify-content-center">
+                        <img src="./assets/graph.svg" alt="Graph" class="img-fluid lazyload">
+                    </div>
+                </div>
+                <div style="height: 20px;"></div>
+                <p> MIDGArD employs a modular and sequential approach based on two diffusion models: the structure generator and the shape generator.
+                </p>
+                <div style="height: 20px;"></div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <img src="./assets/overview.svg" alt="GIF 1" class="img-fluid mx-auto d-block lazyload">
+                    </div>
+                    <!-- Additional images -->
+                </div>
+            </section>
+            <hr class="divider" />
+            <section class="structure-generation">
+                <h2>Structure Generation</h2>
+                <p> The structure generator denoises an articulation graph, unconditionally or from incomplete heterogenous inputs. This articulation graph acts as an abstract, yet interpretable object representation, encoding the structural and semantic information of every link, as well as kinematic attributes
+                </p>
+                <div style="height: 20px;"></div>
+                <div class="row">
+                    <!-- Repeat block for images -->
+                    <div class="col-md-4">
+                        <img src="./assets/structure_gen/00.gif" alt="GIF 1" class="img-fluid mx-auto d-block lazyload">
+                    </div>
+                    <div class="col-md-4">
+                        <img src="./assets/structure_gen/01.gif" alt="GIF 1" class="img-fluid mx-auto d-block lazyload">
+                    </div>
+                    <div class="col-md-4">
+                        <img src="./assets/structure_gen/02.gif" alt="GIF 1" class="img-fluid mx-auto d-block lazyload">
+                    </div>
+                    <div class="col-md-4">
+                        <img src="./assets/structure_gen/03.gif" alt="GIF 1" class="img-fluid mx-auto d-block lazyload">
+                    </div>
+                    <div class="col-md-4">
+                        <img src="./assets/structure_gen/04.gif" alt="GIF 1" class="img-fluid mx-auto d-block lazyload">
+                    </div>
+                    <div class="col-md-4">
+                        <img src="./assets/structure_gen/05.gif" alt="GIF 1" class="img-fluid mx-auto d-block lazyload">
+                    </div>
+                    <!-- Additional images -->
+                </div>
+                <div style="height: 20px;"></div>
+                <p>Given partial infromation about an articulated asset, MIDGArD's structure generator module can
+                    complete the missing element, yielding a consistent, human interpretable representation that can be
+                    adjusted by a human designer during creative processs.</p>
+            </section>
+            <hr class="divider" />
+            <section class="shape-generation">
+                <h2>Shape Generation</h2>
+
+                <p>Object attributes of the articulation graph are used by the shape generator to produce consistent part geometries.</p>
+                <div style="height: 20px;"></div>
+                <div class="row">
+                    <div class="col-md-10 mx-auto d-flex justify-content-center">
+                        <img src="./assets/shape_generator.svg" alt="Graph" class="img-fluid lazyload">
+                    </div>
+                </div>
+            </section>
+            <hr class="divider" />
+            <section class="cond-generation">
+                <h2>Controllable Generation</h2>
+                <div class="col-md-12 mx-auto d-flex justify-content-center">
+                    <img src="./assets/variations_small_more.png" alt="GIF 1"
+                        class="img-fluid mx-auto d-block lazyload">
+                </div>
+                <div style="height: 20px;"></div>
+                <p>Image inputs allow to control the object design on a part-level.</p>
+            </section>
+
+            <hr class="divider" />
+            <section class="simulation">
+                <h2>Simulation-Ready Assets</h2>
+
+                <p>The generated articulated assets are fully simulatable and can directly be exported into <a
+                        href="https://mujoco.readthedocs.io">MuJoCo:</a> </p>
+                        <video width="100%" loop autoplay muted>
+                            <source src="assets/demo.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+
+            </section>
+
+            <!-- Repeat for other sections -->
+        </div>
+    </main>
+
+    <hr class="divider" />
+    <footer class="py-4">
+        <div class="container">
+            <h2>Citation</h2>
+            <pre>
+    @inproceedings{leboutet2024midgard,
+      title = {MIDGArD: Modular Interpretable Diffusion over Graphs for Articulated Designs},
+      author = {Leboutet, Quentin and Wiedemann, Nina and Cai, Zhipeng and Paulitsch, Michael and Yuan, Kai},
+      booktitle = {Advances in Neural Information Processing Systems},
+      pages = {xxxx--xxxx},
+      year = {2024},
+    }
+            </pre>
+            <h6>This webpage is borrowed from <a href="https://dreamfusion3d.github.io/">DreamFusion</a>.</h6>
+        </div>
+    </footer>
+
+    <!-- Scripts at the bottom for performance -->
+    <script src="https://polyfill.io/v3/polyfill.js?features=IntersectionObserver"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
