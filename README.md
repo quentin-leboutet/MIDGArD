@@ -25,12 +25,9 @@ Coming soon!
 
 If you use MIDGArD in your research, please consider citing our paper:
 ```bibtex
-@inproceedings{
-    leboutet2024midgard,
-    title={MIDGArD: Modular Interpretable Diffusion over Graphs for Articulated Designs},
-    author={Leboutet, Quentin and Wiedemann, Nina and Cai, Zhipeng and Paulitsch, Michael and Yuan, Kai},
-    booktitle={Advances in Neural Information Processing Systems},
-    volume={37},
-    year={2024},
+@inproceedings{leboutetmidgard,
+  title={MIDGArD: Modular Interpretable Diffusion over Graphs for Articulated Designs},
+  author={Leboutet, Quentin and Wiedemann, Nina and Paulitsch, Michael and Yuan, Kai and others},
+  booktitle={The Thirty-eighth Annual Conference on Neural Information Processing Systems}
 }
 ```
