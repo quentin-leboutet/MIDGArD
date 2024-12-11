@@ -7,4 +7,6 @@
 [![black](https://img.shields.io/badge/Code%20Style-Black-black.svg?labelColor=gray)](https://black.readthedocs.io/en/stable/)
 [![license](https://img.shields.io/badge/License-MIT-green.svg?labelColor=gray)](https://github.com/quentin-leboutet/MIDGArD/blob/main/LICENSE)
 [![Conference](http://img.shields.io/badge/NeurIPS-2024-4b44ce.svg)](https://neurips.cc)
+
+### Coming soon...
 </div>
