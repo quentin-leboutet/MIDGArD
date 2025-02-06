@@ -1,6 +1,6 @@
 <p align="center">
 <a href="https://quentin-leboutet.github.io/MIDGArD" target="_blank">
-  <img alt="Banner" width="75%" src="assets/MIDGARD.png" />
+  <img alt="Banner" width="75%" src="media/MIDGARD.png" />
 </a>
 </p>
 
